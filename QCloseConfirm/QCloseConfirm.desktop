@@ -1,0 +1,11 @@
+[Desktop Entry]
+Encoding=UTF-8
+Version=1.0
+Type=Application
+Terminal=false
+Name=QCloseConfirm
+Exec=/opt/QCloseConfirm/bin/QCloseConfirm
+Icon=QCloseConfirm64
+X-Window-Icon=
+X-HildonDesk-ShowInToolbar=true
+X-Osso-Type=application/x-executable
