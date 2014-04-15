@@ -46,11 +46,6 @@ void SelectDateWidget::closeEvent(QCloseEvent *)
 
 void SelectDateWidget::showEvent(QShowEvent *)
 {
-    adjustPosition();
-}
-
-void SelectDateWidget::adjustPosition()
-{
     auto screenSize = QApplication::desktop()->screen()->size();
     auto p = QCursor::pos();
 

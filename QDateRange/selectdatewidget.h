@@ -20,7 +20,6 @@ protected:
     virtual void showEvent(QShowEvent *);
 
 private:
-    void adjustPosition();
     QGridLayout *layout;
 };
 
