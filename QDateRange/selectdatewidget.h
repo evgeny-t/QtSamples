@@ -3,6 +3,8 @@
 
 #include <QWidget>
 
+class QGridLayout;
+
 class SelectDateWidget : public QWidget
 {
     Q_OBJECT
@@ -13,6 +15,13 @@ signals:
 
 public slots:
 
+protected:
+    virtual void closeEvent(QCloseEvent *);
+    virtual void showEvent(QShowEvent *);
+
+private:
+    void adjustPosition();
+    QGridLayout *layout;
 };
 
 #endif // SELECTDATEWIDGET_H

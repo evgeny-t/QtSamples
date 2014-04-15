@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 
+class QPushButton;
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
@@ -10,6 +11,9 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = 0);
     ~MainWindow();
+
+private:
+    QPushButton *button;
 };
 
 #endif // MAINWINDOW_H
