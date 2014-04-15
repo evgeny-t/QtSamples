@@ -2,6 +2,7 @@
 #define SELECTDATEWIDGET_H
 
 #include <QWidget>
+#include <QDate>
 
 class QGridLayout;
 
@@ -11,8 +12,9 @@ class SelectDateWidget : public QWidget
 public:
     explicit SelectDateWidget(QWidget *parent = 0);
 
+    QDate selectedDate() const;
 signals:
-
+    void onOk(QDate);
 public slots:
 
 protected:

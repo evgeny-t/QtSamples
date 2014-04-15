@@ -1,8 +1,8 @@
 #include "selectdatewidget.h"
 
+#include <QDebug>
 #include <QApplication>
 #include <QDesktopWidget>
-
 #include <QCalendarWidget>
 #include <QPushButton>
 #include <QGridLayout>
@@ -10,7 +10,7 @@
 SelectDateWidget::SelectDateWidget(QWidget *parent) :
     QWidget(parent)
 {
-    layout = new QGridLayout(this);
+    layout = new QGridLayout;
     auto calendar = new QCalendarWidget(this);
     auto ok = new QPushButton("ОК", this);
     auto cancel = new QPushButton("Отмена", this);
@@ -18,6 +18,7 @@ SelectDateWidget::SelectDateWidget(QWidget *parent) :
     QObject::connect(ok, &QPushButton::clicked, [&]()
         {
             close();
+            emit onOk(selectedDate());
         });
 
     QObject::connect(cancel, &QPushButton::clicked, [&]()
@@ -26,22 +27,26 @@ SelectDateWidget::SelectDateWidget(QWidget *parent) :
         });
 
     layout->addWidget(calendar, 0, 0, 1, 2);
-//    layout->setRowMinimumHeight(0, calendar->height());
-//    layout->setColumnMinimumWidth(0, calendar->width());
     layout->addWidget(ok, 1, 0);
     layout->addWidget(cancel, 1, 1);
 
+    setLayout(layout);
     setWindowFlags(Qt::Popup);
-
     setFocus(Qt::PopupFocusReason);
+    resize(150, 150);
+}
 
-
-    resize(250, 250);
+QDate SelectDateWidget::selectedDate() const
+{
+    auto calendar = static_cast<QCalendarWidget*>(
+                layout->itemAt(0)->widget());
+    return calendar->selectedDate();
 }
 
 void SelectDateWidget::closeEvent(QCloseEvent *)
 {
     qDebug("SelectDateWidget::closeEvent");
+    qDebug() << selectedDate();
 }
 
 void SelectDateWidget::showEvent(QShowEvent *)

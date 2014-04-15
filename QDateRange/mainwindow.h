@@ -3,7 +3,10 @@
 
 #include <QMainWindow>
 
+class QHBoxLayout;
 class QPushButton;
+class QTextEdit;
+
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
@@ -13,7 +16,9 @@ public:
     ~MainWindow();
 
 private:
+    QHBoxLayout *layout;
     QPushButton *button;
+    QTextEdit *textedit;
 };
 
 #endif // MAINWINDOW_H
