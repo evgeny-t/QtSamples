@@ -1,5 +1,5 @@
-#ifndef SELECTDATEWIDGET_H
-#define SELECTDATEWIDGET_H
+#ifndef SELECTDATEPOPUPWIDGET_H
+#define SELECTDATEPOPUPWIDGET_H
 
 #include <QWidget>
 #include <QDate>
@@ -25,4 +25,4 @@ private:
     QGridLayout *layout;
 };
 
-#endif // SELECTDATEWIDGET_H
+#endif // SELECTDATEPOPUPWIDGET_H

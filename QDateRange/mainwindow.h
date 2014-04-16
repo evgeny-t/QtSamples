@@ -2,10 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-
-class QHBoxLayout;
-class QPushButton;
-class QTextEdit;
+#include "selectdaterangewidget.h"
 
 class MainWindow : public QMainWindow
 {
@@ -16,9 +13,7 @@ public:
     ~MainWindow();
 
 private:
-    QHBoxLayout *layout;
-    QPushButton *button;
-    QTextEdit *textedit;
+    SelectDateRangeWidget *selectrange;
 };
 
 #endif // MAINWINDOW_H

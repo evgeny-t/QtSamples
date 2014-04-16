@@ -1,37 +1,19 @@
 #include "mainwindow.h"
-#include "selectdatepopupwidget.h"
 
 #include <QDebug>
-#include <QPushButton>
-#include <QHBoxLayout>
-#include <QTextEdit>
 #include <QDate>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
 {
-    setCentralWidget(new QWidget(this));
+    selectrange = new SelectDateRangeWidget(this);
+//    selectrange->resize(400, 200);
 
-    layout = new QHBoxLayout(centralWidget());
-    button = new QPushButton(this);
-    textedit = new QTextEdit(this);
-
-    layout->addWidget(textedit);
-    layout->addWidget(button);
-
-    QObject::connect(button, &QPushButton::clicked, [&]()
-        {
-            SelectDatePopupWidget *sdwidget = new SelectDatePopupWidget(this);
-            QObject::connect(sdwidget, &SelectDatePopupWidget::onOk, [&](QDate date)
-                {
-                    textedit->setText(date.toString());
-                });
-            sdwidget->show();
-        });
+//    setCentralWidget(new QWidget(this));
 
     resize(400, 400);
 
-    centralWidget()->setLayout(layout);
+//    centralWidget()->setLayout(layout);
 }
 
 MainWindow::~MainWindow()

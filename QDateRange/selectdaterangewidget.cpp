@@ -1,15 +1,18 @@
 #include "selectdaterangewidget.h"
-#include "selectdatepopupwidget.h"
+#include "selectdatewidget.h"
 
 #include <QHBoxLayout>
 
 SelectDateRangeWidget::SelectDateRangeWidget(QWidget *parent) :
     QWidget(parent)
 {
-    SelectDatePopupWidget *begin = new SelectDatePopupWidget(this);
-    SelectDatePopupWidget *end = new SelectDatePopupWidget(this);
+    SelectDateWidget *first = new SelectDateWidget(this),
+            *second = new SelectDateWidget(this);
 
-    layout = new QHBoxLayout(this);
-    layout->addWidget(begin);
-    layout->addWidget(end);
+    layout = new QHBoxLayout;
+    layout->addWidget(first);
+    layout->addWidget(second);
+
+    resize(300, 41);
+    setLayout(layout);
 }
