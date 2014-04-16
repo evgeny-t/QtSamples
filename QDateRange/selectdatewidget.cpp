@@ -13,7 +13,7 @@ SelectDateWidget::SelectDateWidget(QWidget *parent) :
     layout = new QGridLayout;
     auto calendar = new QCalendarWidget(this);
     auto ok = new QPushButton("ОК", this);
-    auto cancel = new QPushButton("Отмена", this);
+    auto cancel = new QPushButton("Cancel", this);
 
     QObject::connect(ok, &QPushButton::clicked, [&]()
         {
