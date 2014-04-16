@@ -3,6 +3,8 @@
 
 #include <QWidget>
 
+class QHBoxLayout;
+
 class SelectDateRangeWidget : public QWidget
 {
     Q_OBJECT
@@ -12,7 +14,8 @@ public:
 signals:
 
 public slots:
-
+private:
+    QHBoxLayout *layout;
 };
 
 #endif // SELECTDATERANGEWIDGET_H
