@@ -1,5 +1,5 @@
 #include "mainwindow.h"
-#include "selectdatewidget.h"
+#include "selectdatepopupwidget.h"
 
 #include <QDebug>
 #include <QPushButton>
@@ -21,8 +21,8 @@ MainWindow::MainWindow(QWidget *parent)
 
     QObject::connect(button, &QPushButton::clicked, [&]()
         {
-            SelectDateWidget *sdwidget = new SelectDateWidget(this);
-            QObject::connect(sdwidget, &SelectDateWidget::onOk, [&](QDate date)
+            SelectDatePopupWidget *sdwidget = new SelectDatePopupWidget(this);
+            QObject::connect(sdwidget, &SelectDatePopupWidget::onOk, [&](QDate date)
                 {
                     textedit->setText(date.toString());
                 });

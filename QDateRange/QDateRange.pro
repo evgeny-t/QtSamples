@@ -14,9 +14,9 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    selectdatewidget.cpp \
-    selectdaterangewidget.cpp
+    selectdaterangewidget.cpp \
+    selectdatepopupwidget.cpp
 
 HEADERS  += mainwindow.h \
-    selectdatewidget.h \
-    selectdaterangewidget.h
+    selectdaterangewidget.h \
+    selectdatepopupwidget.h

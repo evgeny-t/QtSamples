@@ -6,11 +6,11 @@
 
 class QGridLayout;
 
-class SelectDateWidget : public QWidget
+class SelectDatePopupWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit SelectDateWidget(QWidget *parent = 0);
+    explicit SelectDatePopupWidget(QWidget *parent = 0);
 
     QDate selectedDate() const;
 signals:

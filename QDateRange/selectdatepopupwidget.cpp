@@ -1,4 +1,4 @@
-#include "selectdatewidget.h"
+#include "selectdatepopupwidget.h"
 
 #include <QDebug>
 #include <QApplication>
@@ -7,7 +7,7 @@
 #include <QPushButton>
 #include <QGridLayout>
 
-SelectDateWidget::SelectDateWidget(QWidget *parent) :
+SelectDatePopupWidget::SelectDatePopupWidget(QWidget *parent) :
     QWidget(parent)
 {
     layout = new QGridLayout;
@@ -36,20 +36,20 @@ SelectDateWidget::SelectDateWidget(QWidget *parent) :
     resize(150, 150);
 }
 
-QDate SelectDateWidget::selectedDate() const
+QDate SelectDatePopupWidget::selectedDate() const
 {
     auto calendar = static_cast<QCalendarWidget*>(
                 layout->itemAt(0)->widget());
     return calendar->selectedDate();
 }
 
-void SelectDateWidget::closeEvent(QCloseEvent *)
+void SelectDatePopupWidget::closeEvent(QCloseEvent *)
 {
     qDebug("SelectDateWidget::closeEvent");
     qDebug() << selectedDate();
 }
 
-void SelectDateWidget::showEvent(QShowEvent *)
+void SelectDatePopupWidget::showEvent(QShowEvent *)
 {
     auto screenSize = QApplication::desktop()->screen()->size();
     auto p = QCursor::pos();
