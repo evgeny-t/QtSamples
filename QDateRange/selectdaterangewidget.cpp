@@ -16,3 +16,12 @@ SelectDateRangeWidget::SelectDateRangeWidget(QWidget *parent) :
     resize(300, 41);
     setLayout(layout);
 }
+
+QPair<QDate, QDate> SelectDateRangeWidget::range() const
+{
+    QWidget *first = layout->itemAt(0)->widget(),
+            *second = layout->itemAt(1)->widget();
+    return qMakePair(
+                static_cast<SelectDateWidget*>(first)->date(),
+                static_cast<SelectDateWidget*>(second)->date());
+}

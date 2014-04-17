@@ -10,7 +10,7 @@ class SelectDateRangeWidget : public QWidget
     Q_OBJECT
 public:
     explicit SelectDateRangeWidget(QWidget *parent = 0);
-
+    QPair<QDate, QDate> range() const;
 signals:
 
 public slots:
