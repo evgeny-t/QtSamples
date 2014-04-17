@@ -4,6 +4,8 @@
 #include <QMainWindow>
 #include "selectdaterangewidget.h"
 
+class QVBoxLayout;
+
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
@@ -13,7 +15,7 @@ public:
     ~MainWindow();
 
 private:
-    SelectDateRangeWidget *selectrange;
+    QVBoxLayout *layout;
 };
 
 #endif // MAINWINDOW_H
