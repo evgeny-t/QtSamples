@@ -3,14 +3,14 @@
 
 #include <QHBoxLayout>
 #include <QPushButton>
-#include <QTextEdit>
+#include <QDateEdit>
 
 class SelectDateWidgetImp
 {
 public:
     QHBoxLayout *layout;
     QPushButton *button;
-    QTextEdit *textedit;
+    QDateEdit *edit;
     QDate selectedDate;
 };
 
@@ -20,9 +20,10 @@ SelectDateWidget::SelectDateWidget(QWidget *parent) :
     imp = new SelectDateWidgetImp;
     imp->layout = new QHBoxLayout;
     imp->button = new QPushButton(this);
-    imp->textedit = new QTextEdit(this);
+    imp->edit = new QDateEdit(this);
+    imp->edit->setEnabled(false);
 
-    imp->layout->addWidget(imp->textedit);
+    imp->layout->addWidget(imp->edit);
     imp->layout->addWidget(imp->button);
 
     QObject::connect(imp->button, &QPushButton::clicked, [&]()
@@ -30,7 +31,7 @@ SelectDateWidget::SelectDateWidget(QWidget *parent) :
             SelectDatePopupWidget *sdwidget = new SelectDatePopupWidget(this);
             QObject::connect(sdwidget, &SelectDatePopupWidget::onOk, [&](QDate date)
                 {
-                    imp->textedit->setText(date.toString());
+                    imp->edit->setDate(date);
                     imp->selectedDate = date;
                 });
             sdwidget->show();
